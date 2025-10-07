@@ -1,0 +1,264 @@
+/* Global reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fffaf3; /* soft cream background */
+  color: #4a3f35; /* deep brown text */
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Floral border frame */
+.border-frame {
+  background: url('assets/images/floral-border.png') center/cover no-repeat;
+  padding: 40px 20px;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container wrapper */
+.container, .page {
+  text-align: center;
+  padding: 50px 30px;
+  max-width: 900px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #a0522d;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 15px;
+}
+
+/* Paragraphs */
+p {
+  color: #5a4634;
+  font-size: 1.05em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Couple section (index page) */
+.couple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.person {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.person:hover {
+  transform: scale(1.1);
+}
+
+.person img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f7d1c6;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.heart {
+  font-size: 3rem;
+  color: #a0522d;
+  animation: pulse 2s infinite;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.heart:hover {
+  transform: scale(1.2);
+}
+
+/* Buttons */
+button, .btn, .back-btn {
+  background-color: #f7d1c6;
+  color: #4a3f35;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+button:hover, .btn:hover, .back-btn:hover {
+  background-color: #eeb9a8;
+  transform: scale(1.05);
+}
+
+/* Profile & couple images */
+.profile, .couple-photo {
+  border: 3px solid #f7d1c6;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  border-radius: 15px;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Section box (for bride/groom/details pages) */
+.section-box {
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  padding: 30px;
+  margin: auto;
+  max-width: 850px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* -------- Moments Page Styling -------- */
+.moments-container {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 40px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.page-title {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+  color: #a0522d;
+  font-family: 'Great Vibes', cursive;
+}
+
+.subtitle {
+  font-size: 1.1em;
+  margin-bottom: 50px;
+  color: #6b4e31;
+}
+
+/* Each moment card */
+.moment-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0;
+  gap: 30px;
+  background: #fff8f0;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.8s ease;
+  padding: 20px;
+}
+
+.moment-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.moment-card.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.moment-card img {
+  width: 45%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid #f7d1c6;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.moment-info {
+  width: 50%;
+  text-align: left;
+}
+
+.moment-info h2 {
+  color: #a0522d;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-family: 'Playfair Display', serif;
+}
+
+.moment-info p {
+  font-size: 1em;
+  color: #5a4634;
+  line-height: 1.5;
+}
+
+/* Gallery links */
+.gallery-links {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.gallery-links h3 {
+  color: #a0522d;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+
+  .moment-card {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .moment-card img {
+    width: 100%;
+  }
+
+  .moment-info {
+    width: 100%;
+    text-align: center;
+  }
+}
